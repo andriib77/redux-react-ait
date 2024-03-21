@@ -1,21 +1,7 @@
 import Button from "../Button/Button"
 import { useState } from "react"
-//import { CounterProps } from "./types"
-import { CounterWrapper, ButtonControl, Count } from "./styles"
 
-// function Counter({ count, onMinus, onPlus }: CounterProps) {
-//   return (
-//     <CounterWrapper>
-//       <ButtonControl>
-//         <Button name="-" onClick={onMinus} />
-//       </ButtonControl>
-//       <Count>{count}</Count>
-//       <ButtonControl>
-//         <Button name="+" onClick={onPlus} />
-//       </ButtonControl>
-//     </CounterWrapper>
-//   )
-// }
+import { CounterWrapper, ButtonControl, Count } from "./styles"
 
 function Counter() {
   const [count, setCount] = useState<number>(0)
