@@ -14,7 +14,7 @@ function Homework29() {
 
   return (
     <Homework29Wrapper>
-      <Counter count={count} onMinus={onMinus} onPlus={onPlus} />
+      {/* <Counter count={count} onMinus={onMinus} onPlus={onPlus} /> */}
     </Homework29Wrapper>
   )
 }
