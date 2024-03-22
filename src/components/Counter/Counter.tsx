@@ -1,4 +1,4 @@
-import Button from "../Button/Button"
+import Button from "components/Button/Button"
 import { useState } from "react"
 
 import { CounterWrapper, ButtonControl, Count } from "./styles"
