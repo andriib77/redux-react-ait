@@ -5,18 +5,20 @@ import Homework30 from "./homeworks/Homework30/Homework30"
 import Layout from "pages/UsersApp/Layout/Layout"
 import Home from "pages/UsersApp/Home/Home"
 import Users from "pages/UsersApp/Users/Users"
+import RandomJoke from "components/RandomJoke/RandomJoke"
 
 function App() {
   return (
     <BrowserRouter>
-      <Layout>
+      {/* <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/users" element={<Users />} />
           <Route path="*" element="Page Not Found" />
         </Routes>
-      </Layout>
+      </Layout> */}
       {/* <Homework30 /> */}
+      <RandomJoke />
     </BrowserRouter>
   )
 }
