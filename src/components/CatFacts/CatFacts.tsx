@@ -24,7 +24,7 @@ function RandomCatFact() {
   )
 
   const getFact = () => {
-    dispatch(randomCatFactSliceActions.getFact(""))
+    dispatch(randomCatFactSliceActions.getFact(undefined))
   }
 
   const deleteAllFacts = () => {
@@ -47,7 +47,7 @@ function RandomCatFact() {
         </ButtonContainer>
 
         {/* Используем условный оператор для отображения карточек с фактами */}
-        {data.map((value: CatFactInfo, index) => (
+        {data.map((value: CatFactInfo, index: number) => (
           <CardContainer key={value.id}>
             <CatFactText>
               {index + 1}. {value.fact}

@@ -4,7 +4,6 @@ export interface CatFactInfo {
 }
 
 export interface CatFactResponse {
-  type: string
   fact: string
   id: number
 }
