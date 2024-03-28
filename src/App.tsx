@@ -7,6 +7,7 @@ import Home from "pages/UsersApp/Home/Home"
 import Users from "pages/UsersApp/Users/Users"
 import RandomJoke from "components/RandomJoke/RandomJoke"
 import RandomCatFact from "components/CatFacts/CatFacts"
+import RandomUser from "components/RandomUser/RandomUser"
 
 function App() {
   return (
@@ -20,7 +21,8 @@ function App() {
       </Layout> */}
       {/* <Homework30 /> */}
       {/* <RandomJoke /> */}
-      <RandomCatFact />
+      {/* <RandomCatFact /> */}
+      <RandomUser />
     </BrowserRouter>
   )
 }
