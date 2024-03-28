@@ -11,6 +11,6 @@ export interface CatFactResponse {
 
 export interface RandomCatFactState {
   data: CatFactInfo[]
-  status: "default" | "loading" | "success" | "error"
+  isLoading: boolean
   error: any
 }

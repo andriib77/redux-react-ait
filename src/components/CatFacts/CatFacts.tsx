@@ -15,43 +15,36 @@ import {
 import { CatFactInfo } from "store/redux/catFacts/types"
 
 import Button from "components/Button/Button"
-import { useState } from "react"
+import { useEffect } from "react"
 
 function RandomCatFact() {
   const dispatch = useAppDispatch()
-  const { data, error, status } = useAppSelector(
+  const { data, error, isLoading } = useAppSelector(
     randomCatFactSliceSelectors.fact,
   )
 
   const getFact = () => {
-    // Устанавливаем состояние загрузки в true при отправке запроса
-    setIsLoading(true)
-    dispatch(randomCatFactSliceActions.getFact("Some data")).then(() => {
-      // После получения ответа с сервера или при ошибке устанавливаем состояние загрузки в false
-      setIsLoading(false)
-    })
+    dispatch(randomCatFactSliceActions.getFact(""))
   }
 
-  // Состояние для отслеживания загрузки
-  const [isLoading, setIsLoading] = useState<boolean>(false)
   const deleteAllFacts = () => {
     dispatch(randomCatFactSliceActions.deleteAllFacts())
   }
   const deleteFact = (userId: string) => {
     dispatch(randomCatFactSliceActions.deleteFact(userId))
   }
+
+  useEffect(() => {
+    if (error) {
+      alert("Error response")
+    }
+  }, [error])
   return (
     <RandomCatFactWrapper>
       <CatFactCard>
         <ButtonContainer>
-          <Button
-            disabled={status === "loading"}
-            name="Get Cat Fact"
-            onClick={getFact}
-          />
+          <Button disabled={isLoading} name="Get Cat Fact" onClick={getFact} />
         </ButtonContainer>
-        {/* Показываем "Loading" при загрузке данных */}
-        {isLoading && <Loading>Loading...</Loading>}
 
         {/* Используем условный оператор для отображения карточек с фактами */}
         {data.map((value: CatFactInfo, index) => (

@@ -5,7 +5,7 @@ import { RandomCatFactState, CatFactResponse } from "./types"
 
 const randomCatFactsInitialState: RandomCatFactState = {
   data: [],
-  status: "default",
+  isLoading: false,
   error: undefined,
 }
 
@@ -31,16 +31,15 @@ export const catFactsSlice = createAppSlice({
       },
       {
         pending: (state: RandomCatFactState) => {
-          console.log("Pending")
           state.error = undefined
-          state.status = "loading"
+          state.isLoading = true
         },
         fulfilled: (
           state: RandomCatFactState,
           action: PayloadAction<CatFactResponse>,
         ) => {
           console.log("Fulfilled", action)
-          state.status = "success"
+          state.isLoading = false
           state.data = [
             ...state.data,
             {
@@ -51,7 +50,7 @@ export const catFactsSlice = createAppSlice({
         },
         rejected: (state: RandomCatFactState, action: PayloadAction<any>) => {
           console.log("Rejected", action.payload)
-          state.status = "error"
+          state.isLoading = false
           state.error = action.payload
         },
       },
